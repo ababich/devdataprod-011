@@ -19,10 +19,10 @@ shinyServer(
       sd <- input$sd
       data <- rnorm(input$samples, mean = m, sd = sd)
 
-      hist(data,, col='lightblue', main='Histogram', prob=TRUE)
-      abline(v = m ,col="red",lwd=5)
+      hist(data, col='lightblue', main='Histogram', prob=TRUE)
+      abline(v = m, col = "red", lwd = 5)
       curve(dnorm(x, mean = m, sd = sd),
-            col = "darkblue", add = TRUE, outer=TRUE)
+            col = "darkblue", add = TRUE)
     })
 
   }

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Developing Data Products</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Developing Data Products">
+  <meta name="author" content="Oleksiy Babich">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Developing Data Products</h1>
+    <h2>devdataprod-011</h2>
+    <p>Oleksiy Babich<br/>learning curve</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Course Project idea</h2>
+  </hgroup>
+  <article data-timings="">
+    <ul>
+<li><p>First part of Course Project is a Shiny App</p></li>
+<li><p>This Shiny App shows an example of normal distribution histogram</p></li>
+<li><p>It has a number of inputs, output chart and tiny help section</p></li>
+<li><p>Output includes ideal (theoretical) mean from input and perfect distribution curve</p></li>
+<li><p>The whole app is simple and self-explanatory</p></li>
+</ul>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Inputs</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>As inputs we have:</p>
+
+<ul>
+<li><p><code>mean</code> value in selection from -10 to 10 with step 0.01 and default as 0</p></li>
+<li><p><code>sd</code> value in selection from 0.001 to 2 with step 0.001 and default as 1</p></li>
+<li><p>number of <code>samples</code> in selection from 1 to 2000 with default as 500</p></li>
+<li><p><code>random seed</code> value in selection from 1 to 10000 to make the results reproducible (8888 by default)</p></li>
+</ul>
+
+<p>Predefine input values with defaults for example</p>
+
+<pre><code class="r">m = 0
+sd = 1
+samples = 500
+random = 8888
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Sample output</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">set.seed(random)
+data &lt;- rnorm(samples, mean = m, sd = sd)
+
+hist(data, col=&#39;lightblue&#39;, main=&#39;Histogram&#39;, prob=TRUE)
+abline(v = m, col = &quot;red&quot;, lwd = 5)
+curve(dnorm(x, mean = m, sd = sd), col = &quot;darkblue&quot;, add = TRUE)
+</code></pre>
+
+<p><img src="assets/fig/plotChunk-1.png" alt="plot of chunk plotChunk"> </p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Thank you!</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Course Project Links:</p>
+
+<p><a href="https://ababich.shinyapps.io/devdataprod-011/">https://ababich.shinyapps.io/devdataprod-011/</a></p>
+
+<p><a href="https://github.com/ababich/devdataprod-011">https://github.com/ababich/devdataprod-011</a></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Course Project idea'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Inputs'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Sample output'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Thank you!'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

@@ -15,8 +15,8 @@ shinyUI(pageWithSidebar(
     sliderInput('samples', 'samples', value = 500, min = 1, max = 2000, step = 1,),
     sliderInput('random', 'random seed', value = 8888, min = 1, max = 10000, step = 1,),
 
-    helpText('You can see sample normal distribution histogram with selected number of sumples and random seed'),
-    helpText('Ideal mean (red) and ideal distribution curve (darkblue) are also shown\n')
+    helpText('You can see sample normal distribution histogram with selected number of samples and random seed'),
+    helpText('Theretical mean (red) and ideal distribution curve (darkblue) are also shown\n')
   ),
   mainPanel(
     plotOutput('newHist')
